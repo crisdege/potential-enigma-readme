@@ -1,7 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer");
 const fs = require("fs");
-// const generateMarkdown = require("generateMarkdown");
+const generateMarkdown = require("./utils/generateMarkdown");
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -52,13 +52,10 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-  fs.writeToFile("./potential-enigma-readme/readme.md", fileName, (err) => {
-    if (err) {
-      console.log(err);
-      return;
-    } else {
-      console.log("File created!");
-    }
+  fs.writeFile("GENERATED-README.md", data, (err) => {
+    err
+      ? console.log(err)
+      : console.log("GENERATED-README.md file was created and written!");
   });
 }
 
